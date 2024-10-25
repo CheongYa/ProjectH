@@ -8,10 +8,11 @@
 #include "Widgets/Popup/PopupBase.h"
 #include "Components/PlayerStateComponent.h"
 #include "Character/PlayerCharacter.h"
+#include "Components/WidgetComp.h"
 
 // Sets default values
 AInteractableObject::AInteractableObject()
-	: PType(PassingType::None)
+	: PType(PassingType::NonPassable)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
@@ -19,13 +20,15 @@ AInteractableObject::AInteractableObject()
 	RootComponent = Capsule;	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(Capsule);
+	WidgetComp = CreateDefaultSubobject<UWidgetComp>(TEXT("Widget"));
+	WidgetComp->SetupAttachment(RootComponent);
+	
 }
 
 // Called when the game starts or when spawned
 void AInteractableObject::BeginPlay()
 {
 	Super::BeginPlay();
-	
 	Capsule->OnComponentBeginOverlap.AddDynamic(this, &AInteractableObject::OnOverlap);
 	Capsule->OnComponentHit.AddDynamic(this, &AInteractableObject::OnHit);
 	Capsule->OnComponentEndOverlap.AddDynamic(this, &AInteractableObject::EndOverlap);
@@ -35,14 +38,17 @@ void AInteractableObject::BeginPlay()
 	{
 		Mesh->SetCollisionProfileName(FName(TEXT("BlockAll")));
 		Capsule->SetCollisionProfileName(FName(TEXT("Passable")));
+		break;
 	}
 	case PassingType::NonPassable:
 	{
 		Mesh->SetCollisionProfileName(FName(TEXT("BlockAll")));
 		Capsule->SetCollisionProfileName(FName(TEXT("NonPassable")));
+		break;
 	}
+	default:
+		break;
 	}
-	
     
 }
 
@@ -56,13 +62,16 @@ void AInteractableObject::Tick(float DeltaTime)
 void AInteractableObject::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	Cast<APlayerCharacter>(OtherActor)->GetStateComponent()->SetPlayerState(EState::Contacting);
 	Cast<APlayerCharacter>(OtherActor)->GetStateComponent()->AddContactObject(this);
+	WidgetComp->SetVisible(true);
 }
 
 void AInteractableObject::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
+
 }
 
 void AInteractableObject::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {
 	Cast<APlayerCharacter>(OtherActor)->GetStateComponent()->SetPlayerState(EState::Idle);
 	Cast<APlayerCharacter>(OtherActor)->GetStateComponent()->RemoveContactObject(this);
+	WidgetComp->SetVisible(false);
 }
 
