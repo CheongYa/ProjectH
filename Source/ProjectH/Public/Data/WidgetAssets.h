@@ -7,6 +7,7 @@
 #include "WidgetAssets.generated.h"
 
 class UWidgetBase;
+class UUserWidget;
 
 /**
  * 
@@ -17,6 +18,10 @@ class PROJECTH_API UWidgetAssets : public UDataAsset
 	GENERATED_BODY()
 	
 public:
+	TSubclassOf<UUserWidget> Get(const FString& key);
+
+
+protected:
 	UPROPERTY(EditAnywhere)
-	TMap<FString, TObjectPtr<UWidgetBase>> Widgets;
+	TMap<FString, TSubclassOf<UUserWidget>> Widgets;
 };

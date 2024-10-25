@@ -12,15 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Movable.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/Movable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Objects/Movable.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Box.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Box.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Mockup/Sio.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Mockup/Sio.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Character/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Character/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Character/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Character/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Popup/BP_Popup.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Data/PopupWidgets.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Data/PopupWidgets.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/Managers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/Managers.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -642,6 +640,7 @@
       <workItem from="1729575387722" duration="233000" />
       <workItem from="1729575642032" duration="496000" />
       <workItem from="1729687236549" duration="6339000" />
+      <workItem from="1729810482167" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: GAS 관련 추가">
       <option name="closed" value="true" />

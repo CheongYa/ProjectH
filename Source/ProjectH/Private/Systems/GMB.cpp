@@ -2,24 +2,22 @@
 
 
 #include "Systems/GMB.h"
+#include "Managers/Managers.h"
 
-AGMB* AGMB::Instance = nullptr;
-
-AGMB::AGMB() {
-	Instance = this;
-
-}
 
 void AGMB::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) {
 	Super::InitGame(MapName, Options, ErrorMessage);
-	Instance = this;
-	auto mgr = AGMB::GetManager();
-	mgr->InitPlay();
-	mgr->SetWorld(GetWorld());
+	
+}
 
+void AGMB::BeginPlay() {
+	Super::BeginPlay();
+	UManagers* temp = GEngine->GetEngineSubsystem<UManagers>();
+	temp->SetWorld(GetWorld());
+	temp->InitGame();
 }
 
 void AGMB::EndPlay(const EEndPlayReason::Type EndPlayReason) {
 	Super::EndPlay(EndPlayReason);
-	delete Instance->MGR;
+	GEngine->GetEngineSubsystem<UManagers>()->EndGame();
 }
