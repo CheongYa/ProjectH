@@ -5,6 +5,7 @@
 
 void UManagers::InitGame() {
 	Widget = World->SpawnActor<AWidgetManager>();
+	
 }
 
 void UManagers::EndGame() {

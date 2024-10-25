@@ -13,12 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Popup/BP_Popup.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Data/PopupWidgets.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Data/PopupWidgets.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/Managers.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/Managers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Managers/Managers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Managers/Managers.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/InteractableObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/InteractableObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Managers/Managers.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Managers/Managers.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +159,7 @@
     &quot;C++ 프로젝트.ProjectH.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -170,7 +168,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.언어 디폴트 값&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -641,6 +639,8 @@
       <workItem from="1729575642032" duration="496000" />
       <workItem from="1729687236549" duration="6339000" />
       <workItem from="1729810482167" duration="48000" />
+      <workItem from="1729885405242" duration="249000" />
+      <workItem from="1729885922655" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: GAS 관련 추가">
       <option name="closed" value="true" />

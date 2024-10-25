@@ -21,7 +21,6 @@ public:
 	inline void SetWorld(UWorld* world_) {
 		World = world_;
 	}
-
 	UPROPERTY()
 	TObjectPtr<AWidgetManager> Widget;
 
