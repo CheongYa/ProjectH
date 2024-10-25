@@ -24,5 +24,18 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UPROPERTY(EditAnywhere)
+	float Height;
+
+	UPROPERTY(EditAnywhere)
+	float Speed;
+
+	UPROPERTY()
+	TObjectPtr<AActor> Owner;
+
+	UPROPERTY(VisibleAnywhere)
+	float CurrentHeight;
+
+	UPROPERTY()
+	bool bIsUp;
 };
