@@ -23,6 +23,4 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UInputMappingContext> InputMappingContext;
 	
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<UCapsuleComponent> Capsule;
 };

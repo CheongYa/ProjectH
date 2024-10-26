@@ -5,18 +5,14 @@
 #include "Engine/LocalPlayer.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "Components/CapsuleComponent.h"
 
 ADefaultPlayerController::ADefaultPlayerController()
 {
-	Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
-	RootComponent = Capsule;
 }
 
 void ADefaultPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	Capsule->SetCollisionProfileName(FName(TEXT("OverlapAll")));
 
 	if (InputMappingContext)
 	{
