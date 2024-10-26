@@ -3,29 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
-#include "Data/WidgetAssets.h"
+#include "GameFramework/Actor.h"
 #include "WidgetManager.generated.h"
 
-class UWidgetBase;
+class UUserWidget;
+class UWidgetAssets;
 
-/**
- * 
- */
 UCLASS()
-class PROJECTH_API UWidgetManager : public UObject
+class PROJECTH_API AWidgetManager : public AActor
 {
 	GENERATED_BODY()
-	UWidgetManager();
+	
+public:	
+	// Sets default values for this actor's properties
+	AWidgetManager();
 
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
-public:
-	inline const TMap<FString, TObjectPtr<UWidgetBase>> GetPopupWidget() {
-		return PopupWidgets->Widgets;
-	}
+public:	
+
 
 private:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UWidgetAssets> PopupWidgets;
-	
+
+	UPROPERTY()
+	TSubclassOf<UUserWidget> CurrentWidget;
+
+	UPROPERTY()
+	TObjectPtr<UUserWidget> DisplayWidget;
 };

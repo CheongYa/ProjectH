@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/StaticMeshComponent.h"
-#include "HStaticMeshComponent.generated.h"
+#include "Widgets/Popup/PopupBase.h"
+#include "Maze.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class PROJECTH_API UHStaticMeshComponent : public UStaticMeshComponent
+class PROJECTH_API UMaze : public UPopupBase
 {
 	GENERATED_BODY()
 	
