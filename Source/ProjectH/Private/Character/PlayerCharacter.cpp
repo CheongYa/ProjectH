@@ -10,7 +10,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/PlayerStateComponent.h"
-
+#include "Objects/Movable.h"
 
 
 APlayerCharacter::APlayerCharacter()
@@ -111,15 +111,19 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	);
 
 	AActor* HitActor = HitResult.GetActor();
-	if (HitActor)
+	if (IsValid(HitActor))
 	{
-		UE_LOG(LogTemp, Log, TEXT("Hit Actor: %s"), *HitActor->GetName());
+		AMovable* Movable = Cast<AMovable>(HitActor);
+		if (IsValid(Movable))
+		{
+			Movable->Hold(GetActorLocation());
+		}
 	}
 
-	if(State->GetLastContactObject() != nullptr) {
-		State->GetLastContactObject()->Interact(this);
-	}
-	else {
-		GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan, FString(TEXT("No Objects")));
-	}
+	// if(State->GetLastContactObject() != nullptr) {
+	// 	State->GetLastContactObject()->Interact(this);
+	// }
+	// else {
+	// 	GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan, FString(TEXT("No Objects")));
+	// }
 }
