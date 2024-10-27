@@ -3,8 +3,11 @@
 
 #include "Objects/Movable.h"
 
+#include "Character/CharacterBase.h"
 #include "Components/ArrowComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
 AMovable::AMovable()
@@ -39,9 +42,12 @@ void AMovable::OnConstruction(const FTransform& Transform)
 	
 }
 
-void AMovable::Hold(const FVector& Location)
+void AMovable::Hold(const ACharacterBase* Character)
 {
+	if (!IsValid(Character)) return;
+	
 	const FTransform ActorTransform = GetActorTransform();
+	const FTransform CharacterTransform = Character->GetActorTransform();
 
 	float ClosestDistance = 0;
 	int32 ClosestTransformIndex = -1;
@@ -49,7 +55,7 @@ void AMovable::Hold(const FVector& Location)
 	for (int32 i = 0; i < PushTransforms.Num(); ++i)
 	{
 		const FVector Vector = UKismetMathLibrary::TransformLocation(ActorTransform, PushTransforms[i].GetLocation());
-		double Distance = UKismetMathLibrary::DistanceSquared2D(FVector2D(Vector), FVector2D(Location));
+		double Distance = UKismetMathLibrary::DistanceSquared2D(FVector2D(Vector), FVector2D(CharacterTransform.GetLocation()));
 		if (Distance < 10000)
 		{
 			if (Distance < ClosestDistance || ClosestTransformIndex < 0)
@@ -60,9 +66,32 @@ void AMovable::Hold(const FVector& Location)
 		}
 	}
 
-	if (GEngine)
+	const FTransform TargetTransform = UKismetMathLibrary::ComposeTransforms(PushTransforms[ClosestTransformIndex], ActorTransform);
+	
+	UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
+	if (IsValid(CapsuleComponent))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan, FString::Printf(TEXT("ClosestTransformIndex: %d"), ClosestTransformIndex));
+		const FVector AddVector = UKismetMathLibrary::Add_VectorVector(TargetTransform.GetLocation(), FVector(0.f, 0.f, CapsuleComponent->GetScaledCapsuleHalfHeight()));
+		FTransform NewTransform = UKismetMathLibrary::MakeTransform(AddVector, TargetTransform.GetRotation().Rotator(), CharacterTransform.GetScale3D());
+
+		const FVector Start = UKismetMathLibrary::Add_VectorVector(NewTransform.GetLocation(), FVector(0.f, 0.f, 70.f));
+		const FVector End = UKismetMathLibrary::Add_VectorVector(NewTransform.GetLocation(), FVector(0.f, 0.f, 100.f));
+
+		FHitResult HitResult;
+		
+		UKismetSystemLibrary::CapsuleTraceSingle(
+			GetWorld(),
+			Start,
+			End,
+			CapsuleComponent->GetScaledCapsuleRadius(),
+			CapsuleComponent->GetScaledCapsuleHalfHeight(),
+			UEngineTypes::ConvertToTraceType(ECC_Visibility),
+			false,
+			TArray<AActor*>(),
+			EDrawDebugTrace::ForDuration,
+			HitResult,
+			true
+		);
 	}
 }
 

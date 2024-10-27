@@ -92,10 +92,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	const FVector End = Start + GetActorForwardVector() * 100.f;
 	
 	TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
-	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_EngineTraceChannel3));
-
-	TArray<AActor*> ActorsToIgnore;
-	ActorsToIgnore.Add(this);
+	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_GameTraceChannel3));
 
 	FHitResult HitResult;
 	UKismetSystemLibrary::LineTraceSingleForObjects(
@@ -104,7 +101,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 		End,
 		ObjectTypes,
 		false,
-		ActorsToIgnore,
+		TArray<AActor*>(),
 		EDrawDebugTrace::ForDuration,
 		HitResult,
 		true
@@ -116,7 +113,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 		AMovable* Movable = Cast<AMovable>(HitActor);
 		if (IsValid(Movable))
 		{
-			Movable->Hold(GetActorLocation());
+			Movable->Hold(this);
 		}
 	}
 
