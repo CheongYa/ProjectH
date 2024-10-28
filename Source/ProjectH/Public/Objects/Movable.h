@@ -29,6 +29,8 @@ protected:
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = "true"))
 	TArray<FTransform> PushTransforms;
 
+	int32 FindClosestPushTransformIndex(const FVector2D& CharacterLocation, float PushRange);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

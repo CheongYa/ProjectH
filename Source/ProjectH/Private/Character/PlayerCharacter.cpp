@@ -53,6 +53,11 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	// EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &APlayerCharacter::Interact);
 }
 
+void APlayerCharacter::Push(AMovable* Movable)
+{
+	AttachToActor(Movable, FAttachmentTransformRules::SnapToTargetNotIncludingScale, NAME_None);
+}
+
 void APlayerCharacter::Move(const FInputActionValue& Value)
 {
 	FVector2D MovementVector = Value.Get<FVector2D>();

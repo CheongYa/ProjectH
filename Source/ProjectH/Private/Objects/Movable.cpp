@@ -4,6 +4,7 @@
 #include "Objects/Movable.h"
 
 #include "Character/CharacterBase.h"
+#include "Character/PlayerCharacter.h"
 #include "Components/ArrowComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -47,27 +48,12 @@ void AMovable::Hold(ACharacterBase* Character)
 {
 	if (!IsValid(Character)) return;
 	
-	const FTransform ActorTransform = GetActorTransform();
 	const FTransform CharacterTransform = Character->GetActorTransform();
 
-	float ClosestDistance = 0;
-	int32 ClosestTransformIndex = -1;
-	
-	for (int32 i = 0; i < PushTransforms.Num(); ++i)
+	int32 Index = FindClosestPushTransformIndex(FVector2D(CharacterTransform.GetLocation()), 100.f);
+	if (Index >= 0)
 	{
-		const FVector Vector = ActorTransform.TransformPosition(PushTransforms[i].GetLocation());
-		double Distance = FVector2D::DistSquared(FVector2D(Vector), FVector2D(CharacterTransform.GetLocation()));
-		if (Distance < 10000)
-		{
-			if (Distance < ClosestDistance || ClosestTransformIndex < 0)
-			{
-				ClosestTransformIndex = i;
-				ClosestDistance = Distance;
-			}
-		}
-	}
-
-	const FTransform TargetTransform = PushTransforms[ClosestTransformIndex] * ActorTransform;
+	const FTransform TargetTransform = PushTransforms[Index] * GetActorTransform();
 	
 	UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
 	if (IsValid(CapsuleComponent))
@@ -124,6 +110,11 @@ void AMovable::Hold(ACharacterBase* Character)
 						if (!bHit2)
 						{
 							Character->SetActorTransform(NewTransform);
+							APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(Character);
+							if (IsValid(PlayerCharacter))
+							{
+								PlayerCharacter->Push(this);
+							}
 						}
 						else
 						{
@@ -142,6 +133,7 @@ void AMovable::Hold(ACharacterBase* Character)
 			}
 		}
 	}
+	}
 }
 
 // Called when the game starts or when spawned
@@ -149,6 +141,28 @@ void AMovable::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+int32 AMovable::FindClosestPushTransformIndex(const FVector2D& CharacterLocation, float PushRange)
+{
+	float ClosestDistance = 0;
+	int32 ClosestTransformIndex = -1;
+	
+	for (int32 i = 0; i < PushTransforms.Num(); ++i)
+	{
+		const FVector Vector = GetActorTransform().TransformPosition(PushTransforms[i].GetLocation());
+		double Distance = FVector2D::DistSquared(FVector2D(Vector), CharacterLocation);
+		if (Distance < PushRange * PushRange)
+		{
+			if (Distance < ClosestDistance || ClosestTransformIndex < 0)
+			{
+				ClosestTransformIndex = i;
+				ClosestDistance = Distance;
+			}
+		}
+	}
+	
+	return ClosestTransformIndex;
 }
 
 // Called every frame
