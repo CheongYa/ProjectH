@@ -6,6 +6,7 @@
 #include "Character/CharacterBase.h"
 #include "Components/ArrowComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
 
@@ -42,7 +43,7 @@ void AMovable::OnConstruction(const FTransform& Transform)
 	
 }
 
-void AMovable::Hold(const ACharacterBase* Character)
+void AMovable::Hold(ACharacterBase* Character)
 {
 	if (!IsValid(Character)) return;
 	
@@ -54,8 +55,8 @@ void AMovable::Hold(const ACharacterBase* Character)
 	
 	for (int32 i = 0; i < PushTransforms.Num(); ++i)
 	{
-		const FVector Vector = UKismetMathLibrary::TransformLocation(ActorTransform, PushTransforms[i].GetLocation());
-		double Distance = UKismetMathLibrary::DistanceSquared2D(FVector2D(Vector), FVector2D(CharacterTransform.GetLocation()));
+		const FVector Vector = ActorTransform.TransformPosition(PushTransforms[i].GetLocation());
+		double Distance = FVector2D::DistSquared(FVector2D(Vector), FVector2D(CharacterTransform.GetLocation()));
 		if (Distance < 10000)
 		{
 			if (Distance < ClosestDistance || ClosestTransformIndex < 0)
@@ -66,20 +67,20 @@ void AMovable::Hold(const ACharacterBase* Character)
 		}
 	}
 
-	const FTransform TargetTransform = UKismetMathLibrary::ComposeTransforms(PushTransforms[ClosestTransformIndex], ActorTransform);
+	const FTransform TargetTransform = PushTransforms[ClosestTransformIndex] * ActorTransform;
 	
 	UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
 	if (IsValid(CapsuleComponent))
 	{
-		const FVector AddVector = UKismetMathLibrary::Add_VectorVector(TargetTransform.GetLocation(), FVector(0.f, 0.f, CapsuleComponent->GetScaledCapsuleHalfHeight()));
-		FTransform NewTransform = UKismetMathLibrary::MakeTransform(AddVector, TargetTransform.GetRotation().Rotator(), CharacterTransform.GetScale3D());
+		const FVector AddVector = TargetTransform.GetLocation() + FVector(0.f, 0.f, CapsuleComponent->GetScaledCapsuleHalfHeight());
+		FTransform NewTransform = FTransform(TargetTransform.GetRotation().Rotator(), AddVector, CharacterTransform.GetScale3D());
 
-		const FVector Start = UKismetMathLibrary::Add_VectorVector(NewTransform.GetLocation(), FVector(0.f, 0.f, 70.f));
-		const FVector End = UKismetMathLibrary::Add_VectorVector(NewTransform.GetLocation(), FVector(0.f, 0.f, 100.f));
+		const FVector Start = NewTransform.GetLocation() + FVector(0.f, 0.f, 70.f);
+		const FVector End = NewTransform.GetLocation() - FVector(0.f, 0.f, 100.f);
 
 		FHitResult HitResult;
 		
-		UKismetSystemLibrary::CapsuleTraceSingle(
+		bool bHit = UKismetSystemLibrary::CapsuleTraceSingle(
 			GetWorld(),
 			Start,
 			End,
@@ -92,6 +93,54 @@ void AMovable::Hold(const ACharacterBase* Character)
 			HitResult,
 			true
 		);
+
+		if (bHit)
+		{
+			if (!HitResult.bStartPenetrating)
+			{
+				UCharacterMovementComponent* MovementComponent = Character->GetCharacterMovement();
+				if (IsValid(MovementComponent))
+				{
+					float FloorZ = MovementComponent->GetWalkableFloorZ();
+					if (FloorZ < HitResult.ImpactNormal.Z)
+					{
+						TArray<AActor*> IgnoredActors;
+						IgnoredActors.Add(Character);
+						
+						FHitResult HitResult2;
+						
+						bool bHit2 = UKismetSystemLibrary::LineTraceSingle(
+							GetWorld(),
+							GetActorLocation(),
+							NewTransform.GetLocation(),
+							UEngineTypes::ConvertToTraceType(ECC_Visibility),
+							false,
+							IgnoredActors,
+							EDrawDebugTrace::ForDuration,
+							HitResult2,
+							true
+						);
+
+						if (!bHit2)
+						{
+							Character->SetActorTransform(NewTransform);
+						}
+						else
+						{
+							UKismetSystemLibrary::PrintString(GetWorld(), TEXT("WallsBetween Character and Object"));
+						}
+					}
+				}
+				else
+				{
+					UKismetSystemLibrary::PrintString(GetWorld(), TEXT("Floor is Not Walkable"));
+				}
+			}
+			else
+			{
+				UKismetSystemLibrary::PrintString(GetWorld(), TEXT("No Room to Stand"));
+			}
+		}
 	}
 }
 

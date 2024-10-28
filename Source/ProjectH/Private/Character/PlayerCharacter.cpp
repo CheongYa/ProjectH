@@ -95,7 +95,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_GameTraceChannel3));
 
 	FHitResult HitResult;
-	UKismetSystemLibrary::LineTraceSingleForObjects(
+	bool bHit = UKismetSystemLibrary::LineTraceSingleForObjects(
 		GetWorld(),
 		Start,
 		End,
@@ -107,13 +107,16 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 		true
 	);
 
-	AActor* HitActor = HitResult.GetActor();
-	if (IsValid(HitActor))
+	if (bHit)
 	{
-		AMovable* Movable = Cast<AMovable>(HitActor);
-		if (IsValid(Movable))
+		AActor* HitActor = HitResult.GetActor();
+		if (IsValid(HitActor))
 		{
-			Movable->Hold(this);
+			AMovable* Movable = Cast<AMovable>(HitActor);
+			if (IsValid(Movable))
+			{
+				Movable->Hold(this);
+			}
 		}
 	}
 
