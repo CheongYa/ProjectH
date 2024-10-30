@@ -6,6 +6,7 @@
 #include "Character/CharacterBase.h"
 #include "PlayerCharacter.generated.h"
 
+class AMovable;
 class UInputAction;
 struct FInputActionValue;
 class UPlayerStateComponent;
@@ -24,12 +25,21 @@ public:
 		return State;
 	}
 
-	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	
-	void Push(class AMovable* Movable);
+	void BeginPush(AMovable* Movable);
+	void EndPush();
+
+	bool IsHoldingObject() const;
+
+	FVector GetDeltaLocation(float InDeltaSecond, float InForwardMove, float InRightMove);
+	
+	FORCEINLINE bool IsMovingAnObject() const { return bIsMovingAnObject; }
 
 protected:
+	virtual void BeginPlay() override;
+	
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<class USpringArmComponent> CameraBoom;
 
@@ -57,4 +67,19 @@ protected:
 
 	UPROPERTY()
 	bool bIsRunning;
+
+	UPROPERTY()
+	bool bIsMovingAnObject;
+
+	UPROPERTY()
+	TObjectPtr<AMovable> MovableObject;
+
+	UPROPERTY()
+	float ForwardMove;
+
+	UPROPERTY()
+	float RightMove;
+
+	UPROPERTY()
+	float CurrentActorZRotation;
 };

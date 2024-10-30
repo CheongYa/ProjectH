@@ -8,7 +8,6 @@
 #include "Components/ArrowComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
@@ -19,7 +18,6 @@ AMovable::AMovable()
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = Mesh;
-
 }
 
 void AMovable::OnConstruction(const FTransform& Transform)
@@ -41,98 +39,100 @@ void AMovable::OnConstruction(const FTransform& Transform)
 		ArrowComponent->SetRelativeTransform(PushTransform);
 		ArrowComponent->RegisterComponent();
 	}
-	
 }
 
 void AMovable::Hold(ACharacterBase* Character)
 {
 	if (!IsValid(Character)) return;
-	
+
 	const FTransform CharacterTransform = Character->GetActorTransform();
 
 	int32 Index = FindClosestPushTransformIndex(FVector2D(CharacterTransform.GetLocation()), 100.f);
 	if (Index >= 0)
 	{
-	const FTransform TargetTransform = PushTransforms[Index] * GetActorTransform();
-	
-	UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
-	if (IsValid(CapsuleComponent))
-	{
-		const FVector AddVector = TargetTransform.GetLocation() + FVector(0.f, 0.f, CapsuleComponent->GetScaledCapsuleHalfHeight());
-		FTransform NewTransform = FTransform(TargetTransform.GetRotation().Rotator(), AddVector, CharacterTransform.GetScale3D());
+		const FTransform TargetTransform = PushTransforms[Index] * GetActorTransform();
 
-		const FVector Start = NewTransform.GetLocation() + FVector(0.f, 0.f, 70.f);
-		const FVector End = NewTransform.GetLocation() - FVector(0.f, 0.f, 100.f);
-
-		FHitResult HitResult;
-		
-		bool bHit = UKismetSystemLibrary::CapsuleTraceSingle(
-			GetWorld(),
-			Start,
-			End,
-			CapsuleComponent->GetScaledCapsuleRadius(),
-			CapsuleComponent->GetScaledCapsuleHalfHeight(),
-			UEngineTypes::ConvertToTraceType(ECC_Visibility),
-			false,
-			TArray<AActor*>(),
-			EDrawDebugTrace::ForDuration,
-			HitResult,
-			true
-		);
-
-		if (bHit)
+		UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
+		if (IsValid(CapsuleComponent))
 		{
-			if (!HitResult.bStartPenetrating)
-			{
-				UCharacterMovementComponent* MovementComponent = Character->GetCharacterMovement();
-				if (IsValid(MovementComponent))
-				{
-					float FloorZ = MovementComponent->GetWalkableFloorZ();
-					if (FloorZ < HitResult.ImpactNormal.Z)
-					{
-						TArray<AActor*> IgnoredActors;
-						IgnoredActors.Add(Character);
-						
-						FHitResult HitResult2;
-						
-						bool bHit2 = UKismetSystemLibrary::LineTraceSingle(
-							GetWorld(),
-							GetActorLocation(),
-							NewTransform.GetLocation(),
-							UEngineTypes::ConvertToTraceType(ECC_Visibility),
-							false,
-							IgnoredActors,
-							EDrawDebugTrace::ForDuration,
-							HitResult2,
-							true
-						);
+			const FVector AddVector = TargetTransform.GetLocation() + FVector(
+				0.f, 0.f, CapsuleComponent->GetScaledCapsuleHalfHeight());
+			FTransform NewTransform = FTransform(TargetTransform.GetRotation().Rotator(), AddVector,
+			                                     CharacterTransform.GetScale3D());
 
-						if (!bHit2)
+			const FVector Start = NewTransform.GetLocation() + FVector(0.f, 0.f, 70.f);
+			const FVector End = NewTransform.GetLocation() - FVector(0.f, 0.f, 100.f);
+
+			FHitResult HitResult;
+
+			bool bHit = UKismetSystemLibrary::CapsuleTraceSingle(
+				GetWorld(),
+				Start,
+				End,
+				CapsuleComponent->GetScaledCapsuleRadius(),
+				CapsuleComponent->GetScaledCapsuleHalfHeight(),
+				UEngineTypes::ConvertToTraceType(ECC_Visibility),
+				false,
+				TArray<AActor*>(),
+				EDrawDebugTrace::ForDuration,
+				HitResult,
+				true
+			);
+
+			if (bHit)
+			{
+				if (!HitResult.bStartPenetrating)
+				{
+					UCharacterMovementComponent* MovementComponent = Character->GetCharacterMovement();
+					if (IsValid(MovementComponent))
+					{
+						float FloorZ = MovementComponent->GetWalkableFloorZ();
+						if (FloorZ < HitResult.ImpactNormal.Z)
 						{
-							Character->SetActorTransform(NewTransform);
-							APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(Character);
-							if (IsValid(PlayerCharacter))
+							TArray<AActor*> IgnoredActors;
+							IgnoredActors.Add(Character);
+
+							FHitResult HitResult2;
+
+							bool bHit2 = UKismetSystemLibrary::LineTraceSingle(
+								GetWorld(),
+								GetActorLocation(),
+								NewTransform.GetLocation(),
+								UEngineTypes::ConvertToTraceType(ECC_Visibility),
+								false,
+								IgnoredActors,
+								EDrawDebugTrace::ForDuration,
+								HitResult2,
+								true
+							);
+
+							if (!bHit2)
 							{
-								PlayerCharacter->Push(this);
+								Character->SetActorTransform(NewTransform);
+								APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(Character);
+								if (IsValid(PlayerCharacter))
+								{
+									PlayerCharacter->BeginPush(this);
+								}
+							}
+							else
+							{
+								UKismetSystemLibrary::PrintString(
+									GetWorld(), TEXT("WallsBetween Character and Object"));
 							}
 						}
-						else
-						{
-							UKismetSystemLibrary::PrintString(GetWorld(), TEXT("WallsBetween Character and Object"));
-						}
+					}
+					else
+					{
+						UKismetSystemLibrary::PrintString(GetWorld(), TEXT("Floor is Not Walkable"));
 					}
 				}
 				else
 				{
-					UKismetSystemLibrary::PrintString(GetWorld(), TEXT("Floor is Not Walkable"));
+					UKismetSystemLibrary::PrintString(GetWorld(), TEXT("No Room to Stand"));
 				}
 			}
-			else
-			{
-				UKismetSystemLibrary::PrintString(GetWorld(), TEXT("No Room to Stand"));
-			}
 		}
-	}
 	}
 }
 
@@ -140,14 +140,13 @@ void AMovable::Hold(ACharacterBase* Character)
 void AMovable::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 int32 AMovable::FindClosestPushTransformIndex(const FVector2D& CharacterLocation, float PushRange)
 {
 	float ClosestDistance = 0;
 	int32 ClosestTransformIndex = -1;
-	
+
 	for (int32 i = 0; i < PushTransforms.Num(); ++i)
 	{
 		const FVector Vector = GetActorTransform().TransformPosition(PushTransforms[i].GetLocation());
@@ -161,7 +160,7 @@ int32 AMovable::FindClosestPushTransformIndex(const FVector2D& CharacterLocation
 			}
 		}
 	}
-	
+
 	return ClosestTransformIndex;
 }
 
@@ -169,5 +168,4 @@ int32 AMovable::FindClosestPushTransformIndex(const FVector2D& CharacterLocation
 void AMovable::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
