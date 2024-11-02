@@ -13,5 +13,15 @@ UCLASS()
 class PROJECTH_API UPlayerAnimInstance : public UCharacterAnimInstanceBase
 {
 	GENERATED_BODY()
+
+public:
+	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
+
+protected:
+	UPROPERTY(BlueprintReadOnly, Category = "Movement")
+	bool bIsHoldingAnObject;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Movement")
+	bool bIsMovingAnObject;
 	
 };

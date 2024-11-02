@@ -14,6 +14,10 @@ class PROJECTH_API AMovable : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AMovable();
+	
+	virtual void OnConstruction(const FTransform& Transform) override;
+
+	void Hold(class ACharacterBase* Character);
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,6 +28,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = "true"))
 	TArray<FTransform> PushTransforms;
+
+	int32 FindClosestPushTransformIndex(const FVector2D& CharacterLocation, float PushRange);
 
 public:	
 	// Called every frame

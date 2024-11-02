@@ -20,7 +20,6 @@ void AMovableObject::Interact(TObjectPtr<APlayerCharacter> player) {
 
 void AMovableObject::BeginPlay() {
 	Super::BeginPlay();
-	Capsule->OnComponentEndOverlap.AddDynamic(this, &AMovableObject::EndOverlap);
 }
 
 void AMovableObject::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
