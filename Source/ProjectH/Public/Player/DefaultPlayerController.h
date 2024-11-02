@@ -23,4 +23,5 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UInputMappingContext> InputMappingContext;
 	
+	
 };

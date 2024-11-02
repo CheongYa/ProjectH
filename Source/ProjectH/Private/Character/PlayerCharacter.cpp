@@ -11,6 +11,8 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/PlayerStateComponent.h"
 #include "Objects/Movable.h"
+#include "Managers/Managers.h"
+#include "Widgets/Popup/InventoryWidget.h"
 
 
 APlayerCharacter::APlayerCharacter()
@@ -29,6 +31,7 @@ APlayerCharacter::APlayerCharacter()
 
 	State = CreateDefaultSubobject<UPlayerStateComponent>(TEXT("State"));
 	bIsRunning = false;
+	bIsOpenInventory = false;
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -76,6 +79,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APlayerCharacter::Interact);
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &APlayerCharacter::EndPush);
+	EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Inventory);
 }
 
 void APlayerCharacter::BeginPush(AMovable* Movable)
@@ -206,4 +210,15 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	// else {
 	// 	GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan, FString(TEXT("No Objects")));
 	// }
+}
+
+void APlayerCharacter::Inventory(const FInputActionValue& Value) {
+	auto temp = Value.Get<bool>();
+	if(temp && !bIsOpenInventory) {
+		GEngine->GetEngineSubsystem<UManagers>()->Widget->PopupWidget(TEXT("Inventory"));
+		bIsOpenInventory = true;
+	} else {
+		GEngine->GetEngineSubsystem<UManagers>()->Widget->RemovePopupWidget();
+		bIsOpenInventory = false;
+	}
 }
