@@ -26,6 +26,7 @@ public:
 	AInteractableObject();
 
 	virtual void Interact(TObjectPtr<APlayerCharacter> player) {
+		
 	};
 
 protected:
@@ -37,7 +38,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+ 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UCapsuleComponent> Capsule;
 
@@ -46,6 +47,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UWidgetComp> WidgetComp;
+
 
 	UFUNCTION()
 	virtual void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

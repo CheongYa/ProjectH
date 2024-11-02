@@ -17,12 +17,11 @@ class PROJECTH_API AGMB : public AGameModeBase
 protected:
 	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
 	virtual void BeginPlay() override;
-public:
 
-	
+public:
 
 private:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-
+	
+	
 };
-

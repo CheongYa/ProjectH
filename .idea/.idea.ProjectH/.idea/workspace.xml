@@ -12,7 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Widgets/BP_InventoryWidget.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Widgets/Popup/InventoryWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Widgets/Popup/InventoryWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LadderObject.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Mockup/Noob.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Mockup/Noob.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectH.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectH.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/InteractableObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/InteractableObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/MovableObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Objects/MovableObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Player/DefaultPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Player/DefaultPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Systems/GMB.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Objects/InteractableObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Objects/InteractableObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Player/DefaultPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Player/DefaultPlayerController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Public/Systems/GMB.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,67 +76,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Plugins/Animation/LiveLinkHub/Source/LiveLinkHub/Private/LiveLinkHubApplication.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Plugins/EnhancedInput/Intermediate/Build/Win64/UnrealEditor/Inc/EnhancedInput/UHT/InputActionValue.generated.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Developer/DesktopPlatform/Private/Mac/MacNativeFeedbackContext.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Developer/DesktopPlatform/Private/Windows/WindowsNativeFeedbackContext.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Developer/TraceInsights/Private/Insights/ViewModels/LogMessage.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Developer/TraceInsights/Private/Insights/Widgets/SLogView.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Developer/Zen/Private/ZenClient.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/PackagesDialog/Private/SPackagesDialog.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/PackagesDialog/Private/SPackagesDialog.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/SourceControlWindows/Private/SSourceControlFileDialog.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/SourceControlWindows/Private/SSourceControlFileDialog.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/SwarmInterface/DotNET/SwarmInterface.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/UnrealEd/Private/CookOnTheFlyServer.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Editor/UnrealEd/Private/Cooker/CookWorkerServer.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Programs/Shared/EpicGames.Core/AppContainer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendListBase.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_BlendSpacePlayer.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_Mirror.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/AnimNodes/AnimNode_Slot.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/BlendSpacePlayerLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/SequenceEvaluatorLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/AnimGraphRuntime/Private/SequencePlayerLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Linux/LinuxApplication.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Linux/LinuxPlatformApplicationMisc.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Mac/MacApplication.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Mac/MacConsoleOutputDevice.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Mac/MacPlatformApplicationMisc.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Mac/MacPlatformSplash.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Windows/WindowsApplication.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Private/Windows/WindowsPlatformApplicationMisc.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/ApplicationCore/Public/Linux/LinuxApplication.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/Platform.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/MathFwd.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Rotator.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/Windows/PostWindowsApi.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Core/Tests/Containers/RingBufferTest.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectHandle.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/D3D12RHI/Private/D3D12Adapter.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Animation/AnimInstance.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Animation/AnimNodeBase.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/ActiveStateMachineScope.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/AnimInstanceProxy.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/AnimNode_AssetPlayerBase.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/AnimNode_LinkedAnimGraph.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/AnimNode_StateMachine.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/AnimSyncScope.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Animation/MirrorSyncScope.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Experimental/IoStoreOnDemand/Private/CoreHttp/Http.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Messaging/Private/Bus/MessageContext.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Messaging/Private/Bus/MessageContext.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Messaging/Public/IMessageContext.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/MessagingCommon/Public/MessageHandlers.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/MessagingRpc/Private/MessageRpcClient.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/MessagingRpc/Private/MessageRpcServer.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/MessagingRpc/Public/IMessageRpcClient.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/MessagingRpc/Public/IMessageRpcServer.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Epic Games/UE_5.4/Engine/Source/Runtime/Windows/D3D11RHI/Private/Windows/WindowsD3D11Device.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/ProjectH/Private/Character/CharacterAnimInstanceBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/ProjectH/Private/Character/CharacterBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/ProjectH/Private/Character/PlayerAnimInstance.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -139,6 +97,9 @@
     <setting file="file://$PROJECT_DIR$/Source/ProjectH/Public/Player/DefaultPlayerController.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -150,27 +111,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "C++ 프로젝트.ProjectH.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.codeium.enabled": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "newb",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.언어 디폴트 값",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;C++ 프로젝트.ProjectH.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;newb&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="C++ 프로젝트.ProjectH">
+}</component>
+  <component name="RunManager" selected="C++ Project.ProjectH">
     <configuration name="ProjectH" type="CppProject" factoryName="C++ Project">
       <configuration_1>
         <option name="CONFIGURATION" value="Development Editor" />
@@ -352,18 +314,6 @@
         <option name="USE_EXTERNAL_CONSOLE" value="0" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="AUTO_DETECT" />
       </configuration_15>
-      <configuration_16>
-        <option name="CONFIGURATION" value="" />
-        <option name="PLATFORM" value="" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/ProjectH.vcxproj" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXE_PATH" value="$(TargetPath)" />
-        <option name="PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="$(ProjectDir)" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="AUTO_DETECT" />
-      </configuration_16>
       <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/ProjectH.vcxproj" />
       <option name="AUTO_SELECT_PRIORITY" value="10010" />
       <method v="2">
@@ -654,6 +604,101 @@
       <workItem from="1729888768500" duration="94000" />
       <workItem from="1729889589085" duration="129000" />
       <workItem from="1730011942163" duration="1189000" />
+      <workItem from="1730016664602" duration="171000" />
+      <workItem from="1730019247049" duration="166000" />
+      <workItem from="1730019716361" duration="330000" />
+      <workItem from="1730020110891" duration="1077000" />
+      <workItem from="1730021508901" duration="16000" />
+      <workItem from="1730021960235" duration="60000" />
+      <workItem from="1730042523592" duration="997000" />
+      <workItem from="1730055855803" duration="101000" />
+      <workItem from="1730062984475" duration="282000" />
+      <workItem from="1730063346949" duration="883000" />
+      <workItem from="1730064495432" duration="221000" />
+      <workItem from="1730064736039" duration="131000" />
+      <workItem from="1730064883396" duration="323000" />
+      <workItem from="1730065221574" duration="103000" />
+      <workItem from="1730065527383" duration="302000" />
+      <workItem from="1730067800644" duration="149000" />
+      <workItem from="1730067960877" duration="116000" />
+      <workItem from="1730068086575" duration="897000" />
+      <workItem from="1730075252787" duration="404000" />
+      <workItem from="1730076887240" duration="519000" />
+      <workItem from="1730078798997" duration="871000" />
+      <workItem from="1730080298594" duration="347000" />
+      <workItem from="1730080661983" duration="103000" />
+      <workItem from="1730080779672" duration="201000" />
+      <workItem from="1730080997011" duration="55000" />
+      <workItem from="1730081062822" duration="105000" />
+      <workItem from="1730081182270" duration="69000" />
+      <workItem from="1730081266240" duration="490000" />
+      <workItem from="1730081773272" duration="229000" />
+      <workItem from="1730082018763" duration="560000" />
+      <workItem from="1730082596734" duration="79000" />
+      <workItem from="1730082690097" duration="780000" />
+      <workItem from="1730083852871" duration="828000" />
+      <workItem from="1730084989339" duration="210000" />
+      <workItem from="1730085214377" duration="54000" />
+      <workItem from="1730085279431" duration="289000" />
+      <workItem from="1730085726414" duration="1371000" />
+      <workItem from="1730087116401" duration="157000" />
+      <workItem from="1730087283879" duration="228000" />
+      <workItem from="1730087520687" duration="1137000" />
+      <workItem from="1730090012179" duration="234000" />
+      <workItem from="1730090264154" duration="393000" />
+      <workItem from="1730090676610" duration="10000" />
+      <workItem from="1730090785396" duration="216000" />
+      <workItem from="1730091023803" duration="206000" />
+      <workItem from="1730091241416" duration="334000" />
+      <workItem from="1730092113734" duration="70000" />
+      <workItem from="1730162011746" duration="23000" />
+      <workItem from="1730162047617" duration="12000" />
+      <workItem from="1730162071397" duration="96000" />
+      <workItem from="1730162182878" duration="251000" />
+      <workItem from="1730162448963" duration="123000" />
+      <workItem from="1730162806541" duration="33000" />
+      <workItem from="1730162910973" duration="138000" />
+      <workItem from="1730163061702" duration="123000" />
+      <workItem from="1730163195611" duration="241000" />
+      <workItem from="1730163574668" duration="209000" />
+      <workItem from="1730163798048" duration="144000" />
+      <workItem from="1730163953642" duration="15000" />
+      <workItem from="1730163977322" duration="252000" />
+      <workItem from="1730164242057" duration="214000" />
+      <workItem from="1730164605080" duration="190000" />
+      <workItem from="1730165502624" duration="310000" />
+      <workItem from="1730167518295" duration="257000" />
+      <workItem from="1730168053269" duration="6000" />
+      <workItem from="1730168916412" duration="153000" />
+      <workItem from="1730171014080" duration="115000" />
+      <workItem from="1730171542327" duration="14000" />
+      <workItem from="1730172500356" duration="952000" />
+      <workItem from="1730177942886" duration="1037000" />
+      <workItem from="1730180995685" duration="81000" />
+      <workItem from="1730181089070" duration="2410000" />
+      <workItem from="1730185117757" duration="109000" />
+      <workItem from="1730185239490" duration="629000" />
+      <workItem from="1730185935756" duration="1027000" />
+      <workItem from="1730211208747" duration="136000" />
+      <workItem from="1730211362527" duration="423000" />
+      <workItem from="1730212851137" duration="392000" />
+      <workItem from="1730338230000" duration="1268000" />
+      <workItem from="1730342966334" duration="244000" />
+      <workItem from="1730343521698" duration="1055000" />
+      <workItem from="1730431723812" duration="128000" />
+      <workItem from="1730432842012" duration="294000" />
+      <workItem from="1730434049875" duration="220000" />
+      <workItem from="1730434986931" duration="215000" />
+      <workItem from="1730438673948" duration="340000" />
+      <workItem from="1730440556529" duration="1087000" />
+      <workItem from="1730442558421" duration="437000" />
+      <workItem from="1730443271954" duration="205000" />
+      <workItem from="1730443671102" duration="39000" />
+      <workItem from="1730443901877" duration="25000" />
+      <workItem from="1730444534563" duration="12000" />
+      <workItem from="1730444726581" duration="844000" />
+      <workItem from="1730445592931" duration="1150000" />
+      <workItem from="1730524897327" duration="395000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: GAS 관련 추가">
       <option name="closed" value="true" />
@@ -775,5 +820,9 @@
     <MESSAGE value="FEAT: 플레이어 로직 수정" />
     <MESSAGE value="FEAT: 2차 리팩토링" />
     <option name="LAST_COMMIT_MESSAGE" value="FEAT: 2차 리팩토링" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

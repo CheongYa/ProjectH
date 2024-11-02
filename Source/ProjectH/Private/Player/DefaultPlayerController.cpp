@@ -27,6 +27,5 @@ void ADefaultPlayerController::BeginPlay()
 void ADefaultPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
-
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
 }

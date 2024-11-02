@@ -4,8 +4,6 @@
 #include "Objects/InteractableObject.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
-#include "Systems/GMB.h"
-#include "Widgets/Popup/PopupBase.h"
 #include "Components/PlayerStateComponent.h"
 #include "Character/PlayerCharacter.h"
 #include "Components/WidgetComp.h"
@@ -20,6 +18,7 @@ AInteractableObject::AInteractableObject()
 	RootComponent = Capsule;	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(Capsule);
+	Mesh->SetCollisionProfileName(FName(TEXT("BlockAll")));
 	WidgetComp = CreateDefaultSubobject<UWidgetComp>(TEXT("Widget"));
 	WidgetComp->SetupAttachment(RootComponent);
 	
@@ -49,7 +48,8 @@ void AInteractableObject::BeginPlay()
 	default:
 		break;
 	}
-    
+	
+	
 }
 
 // Called every frame

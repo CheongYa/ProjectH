@@ -7,7 +7,6 @@
 
 void AGMB::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) {
 	Super::InitGame(MapName, Options, ErrorMessage);
-	
 }
 
 void AGMB::BeginPlay() {
@@ -20,4 +19,5 @@ void AGMB::BeginPlay() {
 void AGMB::EndPlay(const EEndPlayReason::Type EndPlayReason) {
 	Super::EndPlay(EndPlayReason);
 	GEngine->GetEngineSubsystem<UManagers>()->EndGame();
+	
 }
