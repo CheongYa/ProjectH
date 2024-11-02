@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Blueprint/UserWidget.h"
 #include "GameFramework/Actor.h"
 #include "WidgetManager.generated.h"
 
@@ -23,7 +24,10 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	void PopupWidget();
+	void PopupWidget(const FString& key);
+	void RemovePopupWidget() {
+		DisplayWidget->RemoveFromParent();
+	}
 
 private:
 	UPROPERTY(VisibleAnywhere)

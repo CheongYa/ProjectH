@@ -61,4 +61,7 @@ protected:
 
 	UPROPERTY()
 	bool bIsRunning;
+
+	UPROPERTY()
+	bool bIsOpenInventory;
 };

@@ -10,7 +10,7 @@ AWidgetManager::AWidgetManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	static ConstructorHelpers::FObjectFinder<UWidgetAssets> WidgetClassFinder(TEXT("/Script/ProjectH.WidgetAssets'/Game/Data/PopupWidgets.PopupWidgets'"));
+	static ConstructorHelpers::FObjectFinder<UWidgetAssets> WidgetClassFinder(TEXT("/Script/ProjectH.WidgetAssets'/Game/Blueprints/Widgets/WidgetAssets.WidgetAssets'"));
 	PopupWidgets = WidgetClassFinder.Object;
 }
 
@@ -22,6 +22,11 @@ void AWidgetManager::BeginPlay()
 	// DisplayWidget->AddToViewport();
 }
 
-void AWidgetManager::PopupWidget() {
-	
+void AWidgetManager::PopupWidget(const FString& key) {
+	if(DisplayWidget) {
+		DisplayWidget->RemoveFromParent();
+	}
+	auto temp = PopupWidgets->Get(key);
+	DisplayWidget = CreateWidget<UUserWidget>(GetWorld(), temp);
+	DisplayWidget->AddToViewport();
 }

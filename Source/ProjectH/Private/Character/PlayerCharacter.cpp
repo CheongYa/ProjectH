@@ -30,6 +30,7 @@ APlayerCharacter::APlayerCharacter()
 
 	State = CreateDefaultSubobject<UPlayerStateComponent>(TEXT("State"));
 	bIsRunning = false;
+	bIsOpenInventory = false;
 }
 
 void APlayerCharacter::BeginPlay() {
@@ -51,7 +52,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &APlayerCharacter::StopJumping);
 
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Interact);
-	EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Interact);
+	EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Inventory);
 	// EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &APlayerCharacter::Interact);
 }
 
@@ -127,5 +128,12 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 }
 
 void APlayerCharacter::Inventory(const FInputActionValue& Value) {
-	GEngine->GetEngineSubsystem<UManagers>()->Widget;
+	auto temp = Value.Get<bool>();
+	if(temp && !bIsOpenInventory) {
+		GEngine->GetEngineSubsystem<UManagers>()->Widget->PopupWidget(TEXT("Inventory"));
+		bIsOpenInventory = true;
+	} else {
+		GEngine->GetEngineSubsystem<UManagers>()->Widget->RemovePopupWidget();
+		bIsOpenInventory = false;
+	}
 }
