@@ -14,6 +14,8 @@ class PROJECTH_API UInventoryWidget : public UPopupBase
 {
 	GENERATED_BODY()
 
+	virtual void NativeOnInitialized() override;
+
 public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UCanvasPanel> Panel;

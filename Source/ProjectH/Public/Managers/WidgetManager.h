@@ -23,7 +23,7 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-
+	void PopupWidget();
 
 private:
 	UPROPERTY(VisibleAnywhere)

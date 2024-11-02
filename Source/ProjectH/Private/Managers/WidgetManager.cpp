@@ -18,9 +18,10 @@ AWidgetManager::AWidgetManager()
 void AWidgetManager::BeginPlay()
 {
 	Super::BeginPlay();
-	//DisplayWidget = CreateWidget<UUserWidget>(GetWorld(), PopupWidgets->Get(FString(TEXT("Maze"))));
-	//DisplayWidget->AddToViewport();
+	// DisplayWidget = CreateWidget<UUserWidget>(GetWorld(), PopupWidgets->Get(FString(TEXT("Maze"))));
+	// DisplayWidget->AddToViewport();
 }
 
-
-
+void AWidgetManager::PopupWidget() {
+	
+}

@@ -10,7 +10,8 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/PlayerStateComponent.h"
-
+#include "Managers/Managers.h"
+#include "Widgets/Popup/InventoryWidget.h"
 
 
 APlayerCharacter::APlayerCharacter()
@@ -50,6 +51,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &APlayerCharacter::StopJumping);
 
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Interact);
+	EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Interact);
 	// EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &APlayerCharacter::Interact);
 }
 
@@ -122,4 +124,8 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	else {
 		GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Cyan, FString(TEXT("No Objects")));
 	}
+}
+
+void APlayerCharacter::Inventory(const FInputActionValue& Value) {
+	GEngine->GetEngineSubsystem<UManagers>()->Widget;
 }

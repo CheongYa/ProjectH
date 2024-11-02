@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InputActionValue.h"
 #include "Character/CharacterBase.h"
 #include "PlayerCharacter.generated.h"
 
@@ -46,10 +47,14 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> InteractAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> InventoryAction;
 	
 	void Move(const FInputActionValue& Value);
 	void Run(const FInputActionValue& Value);
 	void Interact(const FInputActionValue& Value);
+	void Inventory(const FInputActionValue& Value);
 	
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UPlayerStateComponent> State;
