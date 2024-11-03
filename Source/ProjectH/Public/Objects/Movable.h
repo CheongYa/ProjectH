@@ -17,7 +17,7 @@ public:
 	
 	virtual void OnConstruction(const FTransform& Transform) override;
 
-	void Hold(class ACharacterBase* Character);
+	void Hold(class APlayerCharacter* Character);
 
 protected:
 	// Called when the game starts or when spawned

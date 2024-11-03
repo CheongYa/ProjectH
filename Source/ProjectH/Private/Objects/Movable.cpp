@@ -3,8 +3,8 @@
 
 #include "Objects/Movable.h"
 
-#include "Character/CharacterBase.h"
 #include "Character/PlayerCharacter.h"
+#include "Character/Components/PushComponent.h"
 #include "Components/ArrowComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -41,13 +41,16 @@ void AMovable::OnConstruction(const FTransform& Transform)
 	}
 }
 
-void AMovable::Hold(ACharacterBase* Character)
+void AMovable::Hold(APlayerCharacter* Character)
 {
 	if (!IsValid(Character)) return;
-
+	
+	UPushComponent* PushComponent = Character->GetPushComponent();
+	if (!IsValid(PushComponent)) return;
+	
 	const FTransform CharacterTransform = Character->GetActorTransform();
 
-	int32 Index = FindClosestPushTransformIndex(FVector2D(CharacterTransform.GetLocation()), 100.f);
+	int32 Index = FindClosestPushTransformIndex(FVector2D(CharacterTransform.GetLocation()), PushComponent->GetPushRange());
 	if (Index >= 0)
 	{
 		const FTransform TargetTransform = PushTransforms[Index] * GetActorTransform();
@@ -109,16 +112,11 @@ void AMovable::Hold(ACharacterBase* Character)
 							if (!bHit2)
 							{
 								Character->SetActorTransform(NewTransform);
-								APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(Character);
-								if (IsValid(PlayerCharacter))
-								{
-									PlayerCharacter->BeginPush(this);
-								}
+								PushComponent->BeginPush(this);
 							}
 							else
 							{
-								UKismetSystemLibrary::PrintString(
-									GetWorld(), TEXT("WallsBetween Character and Object"));
+								UKismetSystemLibrary::PrintString(GetWorld(), TEXT("WallsBetween Character and Object"));
 							}
 						}
 					}
