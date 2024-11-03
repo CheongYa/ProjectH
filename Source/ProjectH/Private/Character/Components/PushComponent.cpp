@@ -25,6 +25,7 @@ void UPushComponent::BeginPush(AMovable* Movable)
 		PlayerCharacter->AttachToActor(MovableObject, FAttachmentTransformRules::KeepWorldTransform);
 		PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
 		SetComponentTickEnabled(true);
+		MovableObject->GetMesh()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
 	}
 }
 
@@ -32,6 +33,7 @@ void UPushComponent::EndPush()
 {
 	if (IsValid(PlayerCharacter) && IsValid(MovableObject))
 	{
+		MovableObject->GetMesh()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Block);
 		bIsMovingAnObject = false;
 		PlayerCharacter->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = true;
