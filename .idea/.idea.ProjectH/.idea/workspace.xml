@@ -12,9 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Widgets/BP_Slot.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Widgets/BP_InventoryWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Widgets/BP_InventoryWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Character/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Character/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ProjectH/Private/Managers/WidgetManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/Private/Managers/WidgetManager.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +67,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Color.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/UMG/Public/Blueprint/UserWidget.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/ProjectH/Private/Character/CharacterAnimInstanceBase.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -116,7 +114,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.stickyLines",
+    "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -691,7 +689,9 @@
       <workItem from="1730538114515" duration="1999000" />
       <workItem from="1730690785569" duration="114000" />
       <workItem from="1730691070752" duration="218000" />
-      <workItem from="1730695080025" duration="3856000" />
+      <workItem from="1730695080025" duration="4783000" />
+      <workItem from="1730700717738" duration="9000" />
+      <workItem from="1730705625765" duration="204000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: GAS 관련 추가">
       <option name="closed" value="true" />
