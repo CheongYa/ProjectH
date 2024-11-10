@@ -10,20 +10,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Private/MyPlayerState.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ProjectH/Public/MyPlayerState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectH.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectH.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ProjectH/ProjectH.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ProjectH/ProjectH.Build.cs" afterDir="false" />
+    <list default="true" id="3931bdc4-1439-4dff-8b37-1a2e92a1e698" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectH/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Props/Niagara/Water2D.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Props/Niagara/Water2D.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,53 +29,35 @@
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
-    "assignee": "UnitySio"
+    "assignee": "dnwls010728"
   }
 }]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/UnitySio/ProjectH.git",
+    "url": "https://github.com/dnwls010728/ProjectH.git",
     "accountId": "252ef258-120a-43d9-bed7-70d8579316d0"
   }
 }]]></component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Unreal Projects/ProjectH/ProjectH.uproject" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/ProjectH/Private/MyPlayerState.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/ProjectH/Public/MyPlayerState.h" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
   "associatedIndex": 7
 }]]></component>
-  <component name="ProjectId" id="2kBDzFrU6B55NDY56egBidxDnSm" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2odgRHwpzi5UpNqi5EBUPV0fBX1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "C++ 프로젝트.ProjectH.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Sio",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Woojin Choi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Woojin Choi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Woojin Choi\\AppData\\Local\\Symbols\\src"
-    ]
   }
 }]]></component>
   <component name="RunManager" selected="C++ 프로젝트.ProjectH">
@@ -495,33 +475,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="09854dd0-271c-4362-ab6e-9681c41c979e" name="변경" comment="" />
-      <created>1722748336763</created>
+      <changelist id="3931bdc4-1439-4dff-8b37-1a2e92a1e698" name="변경" comment="" />
+      <created>1731204859703</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1722748336763</updated>
-      <workItem from="1722748337952" duration="2135000" />
+      <updated>1731204859703</updated>
+      <workItem from="1731204861661" duration="361000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
 </project>
