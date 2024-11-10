@@ -45,6 +45,18 @@ protected:
 	UPROPERTY()
 	bool bIsMovingAnObject;
 
+	UPROPERTY(EditAnywhere)
+	bool bCanMoveRight;
+
+	UPROPERTY(EditAnywhere)
+	bool bCanMoveLeft;
+
+	UPROPERTY(EditAnywhere)
+	bool bCanMoveUp;
+
+	UPROPERTY(EditAnywhere)
+	bool bCanMoveDown;
+
 	UPROPERTY()
 	TObjectPtr<AMovable> MovableObject;
 

@@ -104,7 +104,7 @@ void AMovable::Hold(APlayerCharacter* Character)
 								UEngineTypes::ConvertToTraceType(ECC_Visibility),
 								false,
 								IgnoredActors,
-								EDrawDebugTrace::ForDuration,
+								EDrawDebugTrace::None,
 								HitResult2,
 								true
 							);
