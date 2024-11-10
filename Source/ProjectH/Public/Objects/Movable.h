@@ -17,14 +17,16 @@ public:
 	
 	virtual void OnConstruction(const FTransform& Transform) override;
 
-	void Hold(class ACharacterBase* Character);
+	void Hold(class APlayerCharacter* Character);
+
+	FORCEINLINE UStaticMeshComponent* GetMesh() const { return Mesh.Get(); }
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
-	TObjectPtr<class UStaticMeshComponent> Mesh;
+	TObjectPtr<UStaticMeshComponent> Mesh;
 
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = "true"))
 	TArray<FTransform> PushTransforms;

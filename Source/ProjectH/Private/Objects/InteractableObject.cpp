@@ -15,13 +15,13 @@ AInteractableObject::AInteractableObject()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
-	RootComponent = Capsule;	
+	RootComponent = Capsule;
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(Capsule);
 	Mesh->SetCollisionProfileName(FName(TEXT("BlockAll")));
 	WidgetComp = CreateDefaultSubobject<UWidgetComp>(TEXT("Widget"));
 	WidgetComp->SetupAttachment(RootComponent);
-	
+
 }
 
 // Called when the game starts or when spawned
@@ -48,15 +48,15 @@ void AInteractableObject::BeginPlay()
 	default:
 		break;
 	}
-	
-	
+
+
 }
 
 // Called every frame
 void AInteractableObject::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
+
 }
 
 void AInteractableObject::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {

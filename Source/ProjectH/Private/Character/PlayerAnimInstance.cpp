@@ -5,6 +5,7 @@
 
 #include "Character/CharacterBase.h"
 #include "Character/PlayerCharacter.h"
+#include "Character/Components/PushComponent.h"
 
 void UPlayerAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 {
@@ -15,8 +16,12 @@ void UPlayerAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(Character);
 		if (IsValid(PlayerCharacter))
 		{
-			bIsHoldingAnObject = PlayerCharacter->IsHoldingObject();
-			bIsMovingAnObject = PlayerCharacter->IsMovingAnObject();
+			UPushComponent* PushComponent = PlayerCharacter->GetPushComponent();
+			if (PushComponent)
+			{
+				bIsHoldingAnObject = PushComponent->IsHoldingObject();
+				bIsMovingAnObject = PushComponent->IsMovingAnObject();
+			}
 		}
 	}
 }

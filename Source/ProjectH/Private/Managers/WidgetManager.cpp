@@ -26,7 +26,7 @@ void AWidgetManager::PopupWidget(const FString& key) {
 	if(DisplayWidget) {
 		DisplayWidget->RemoveFromParent();
 	}
-	auto temp = PopupWidgets->Get(key);
+	TSubclassOf<UUserWidget> temp = PopupWidgets->Get(key);
 	DisplayWidget = CreateWidget<UUserWidget>(GetWorld(), temp);
 	DisplayWidget->AddToViewport();
 }
