@@ -11,6 +11,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/PlayerStateComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Objects/Movable.h"
 #include "Managers/Managers.h"
 #include "Widgets/Popup/InventoryWidget.h"
@@ -19,10 +20,10 @@
 APlayerCharacter::APlayerCharacter()
 {
 	bUseControllerRotationYaw = false;
-	
+
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.f, 0.f);
-	
+
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	CameraBoom->SetupAttachment(RootComponent);
 
@@ -71,7 +72,7 @@ void APlayerCharacter::EndPush()
 
 void APlayerCharacter::BeginPlay() {
 	Super::BeginPlay();
-	
+
 }
 
 void APlayerCharacter::Move(const FInputActionValue& Value)
@@ -112,14 +113,14 @@ void APlayerCharacter::Run(const FInputActionValue& Value)
 {
 	bIsRunning = Value.Get<bool>();
 	GetCharacterMovement()->MaxWalkSpeed = bIsRunning ? 600.f : 300.f;
-	
+
 }
 
 void APlayerCharacter::Interact(const FInputActionValue& Value)
 {
 	const FVector Start = GetActorLocation();
 	const FVector End = Start + GetActorForwardVector() * 100.f;
-	
+
 	TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
 	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_GameTraceChannel3));
 
@@ -161,9 +162,11 @@ void APlayerCharacter::Inventory(const FInputActionValue& Value) {
 	auto temp = Value.Get<bool>();
 	if(temp && !bIsOpenInventory) {
 		GEngine->GetEngineSubsystem<UManagers>()->Widget->PopupWidget(TEXT("Inventory"));
+		UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 0.0f);
 		bIsOpenInventory = true;
 	} else {
 		GEngine->GetEngineSubsystem<UManagers>()->Widget->RemovePopupWidget();
+		UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 1.0f);
 		bIsOpenInventory = false;
 	}
 }
