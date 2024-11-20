@@ -1,0 +1,34 @@
+name: Unreal Engine CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Unreal Engine
+      uses: tritonas00/setup-unreal-engine@v2
+      with:
+        version: '5.2'
+
+    - name: Build Unreal Project
+      run: |
+        cd path/to/YourProject.uproject
+        Build.bat YourProjectEditor Win64 Development
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Deploy to Server
+      run: |
+        scp ./BuildOutput user@server:/path/to/deployment
+        ssh user@server 'bash /path/to/redeploy.sh'
