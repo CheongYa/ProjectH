@@ -1,0 +1,38 @@
+name: Unreal Engine Build CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Unreal Engine
+        uses: UnrealEngineGitHub/Setup-UnrealEngine@v1
+        with:
+          ue-version: 5.4.3
+          install: true
+
+      - name: Build Unreal Engine project
+        run: |
+          call Build.bat
+
+      - name: Upload Build to GitHub Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: UnrealEngineBuild
+          path: Build/
+
+      - name: Upload Build to OneDrive
+        run: |
+          onedrive-cli --access-token ${{ secrets.ONEDRIVE_TOKEN }} upload Build/ /UnrealEngineBuild/
+  
